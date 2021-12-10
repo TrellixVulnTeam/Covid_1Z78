@@ -43,20 +43,18 @@ button {
   border-radius: 25px;
 }
 
-/* button:hover,
-button:focus {
+button:hover {
   border: 2px solid black;
-  box-shadow: 0 0 10px red;
   background-color: rgba(0, 0, 0, 0.623);
   color: #fff;
-} */
+}
 
 .countries {
-  width: 10vw;
+  width: 30%;
   height: 20vh;
   overflow: visible;
   overflow-x: hidden;
-  margin: auto;
+  margin: 0 auto;
   z-index: 1;
 }
 

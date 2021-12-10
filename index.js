@@ -66,29 +66,72 @@ function getInfoByregion(region) {
 
 var chart = document.getElementById("myChart");
 var myChart = new Chart(chart, {
-  type: "line",
+  type: "bar",
   data: {
     labels: [],
     datasets: [
       {
         label: "Covid-19 World Wide Information",
         data: [],
-        backgroundColor: [],
-        borderColor: [],
-        borderWidth: 1,
+        backgroundColor: [
+          "#FF6633",
+          "#FFB399",
+          "#FF33FF",
+          "#FFFF99",
+          "#00B3E6",
+          "#E6B333",
+          "#3366E6",
+          "#999966",
+          "#99FF99",
+          "#B34D4D",
+          "#80B300",
+          "#809900",
+          "#E6B3B3",
+          "#6680B3",
+          "#66991A",
+          "#FF99E6",
+          "#CCFF1A",
+          "#FF1A66",
+          "#E6331A",
+          "#33FFCC",
+          "#66994D",
+          "#B366CC",
+          "#4D8000",
+          "#B33300",
+          "#CC80CC",
+          "#66664D",
+          "#991AFF",
+          "#E666FF",
+          "#4DB3FF",
+          "#1AB399",
+          "#E666B3",
+          "#33991A",
+          "#CC9999",
+          "#B3B31A",
+          "#00E680",
+          "#4D8066",
+          "#809980",
+          "#E6FF80",
+          "#1AFF33",
+          "#999933",
+          "#FF3380",
+          "#CCCC00",
+          "#66E64D",
+          "#4D80CC",
+          "#9900B3",
+          "#E64D66",
+          "#4DB380",
+          "#FF4D4D",
+          "#99E6E6",
+          "#6666FF",
+        ],
+        borderColor: ["green", "red", "yellow", "blue", "brown"],
+        borderWidth: 2,
       },
     ],
   },
   options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
+    spanGaps: true,
   },
 });
 
@@ -108,6 +151,11 @@ function addData(chart, label, data) {
   chart.update();
 }
 
+// function showChart() {
+//   // document.querySelector(".chart-container").style.visibility = "visible";
+//   // document.querySelector(".country-info").style.visibility = "hidden";
+// }
+
 let currentDataType = 0;
 
 function updateDataByRegion(region) {
@@ -115,13 +163,36 @@ function updateDataByRegion(region) {
   removeData(myChart);
 
   for (let info of Object.values(currentRegionInfo)) {
-    // info[1][currentDataType] &&
-      addData(myChart, info[0], info[1][currentDataType]);
-      // console.log(info[1][currentDataType])
+    addData(myChart, info[0], info[1][currentDataType]);
   }
 }
 
+function updateDataType(dataType) {
+  removeData(myChart);
+  currentDataType = dataType;
+  for (let info of Object.values(currentRegionInfo)) {
+    addData(myChart, info[0], info[1][dataType]);
+  }
+}
 
+function updateHeadline(country, data) {
+  switch (data) {
+    case 0:
+      data = "Confirmed";
+      break;
+    case 1:
+      data = "Recovered";
+      break;
+    case 2:
+      data = "Critical";
+      break;
+    case 3:
+      data = "Deaths";
+      break;
+  }
+  myChart.data.datasets[0].label = `${country} - ${data}`;
+  myChart.update();
+}
 
 document.querySelector(".buttons").addEventListener("click", buttonsSwitch);
 
@@ -130,51 +201,60 @@ function buttonsSwitch(event) {
   switch (event.target.innerText) {
     case "Asia":
       currentRegion = "Asia";
-      // updateRegionChart();
       updateDataByRegion(currentRegion);
-      // console.log("asia");
+      updateHeadline(currentRegion, currentDataType);
+      console.log(currentRegion);
       break;
     case "Europe":
       currentRegion = "Europe";
-      // updateRegionChart();
+
       updateDataByRegion(currentRegion);
+      updateHeadline(currentRegion, currentDataType);
+      console.log(currentRegion);
       break;
     case "Africa":
       currentRegion = "Africa";
-      // updateRegionChart();
+
       updateDataByRegion(currentRegion);
+      updateHeadline(currentRegion, currentDataType);
+      console.log(currentRegion);
       break;
     case "Americas":
       currentRegion = "Americas";
-      // updateRegionChart();
       updateDataByRegion(currentRegion);
+      updateHeadline(currentRegion, currentDataType);
+      console.log(currentRegion);
       break;
     case "Oceania":
       currentRegion = "Oceania";
-      // updateRegionChart();
+
       updateDataByRegion(currentRegion);
+      updateHeadline(currentRegion, currentDataType);
+      console.log(currentRegion);
       break;
     case "Confirmed":
-      currentDataType = 0;
-      // updateDataTypeChart();
       // showChart();
+      updateDataType(0);
+      updateHeadline(currentRegion, 0);
+      console.log(currentRegion);
       break;
     case "Deaths":
-      currentDataType = 3;
-      // updateDataTypeChart();
       // showChart();
+      updateDataType(3);
+      updateHeadline(currentRegion, 3);
+      console.log(currentRegion);
       break;
     case "Recovered":
-      currentDataType = 1;
-      // updateDataTypeChart();
       // showChart();
+      updateDataType(1);
+      updateHeadline(currentRegion, 1);
+      console.log(currentRegion);
       break;
     case "Critical":
-      currentDataType = 2;
-      // updateDataTypeChart();
       // showChart();
+      updateDataType(2);
+      updateHeadline(currentRegion, 2);
+      console.log(currentRegion);
       break;
   }
 }
-
-updateDataByRegion();
