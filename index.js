@@ -64,8 +64,8 @@ function getInfoByregion(region) {
   });
 }
 
-var chart = document.getElementById("myChart");
-var myChart = new Chart(chart, {
+let chart = document.getElementById("myChart");
+let myChart = new Chart(chart, {
   type: "line",
   data: {
     labels: [],
@@ -135,6 +135,16 @@ var myChart = new Chart(chart, {
   },
 });
 
+function updateChartType() {
+  let newChart = myChart.data;
+  myChart.destroy();
+  myChart = new Chart(chart, {
+    type: document.getElementById("chartType").value,
+    data: newChart,
+  });
+  console.log(newChart);
+}
+
 function removeData(chart) {
   chart.data.labels = [];
   chart.data.datasets.forEach((dataset) => {
@@ -164,6 +174,8 @@ function updateDataByRegion(region) {
 
   for (let info of Object.values(currentRegionInfo)) {
     addData(myChart, info[0], info[1][currentDataType]);
+    console.log(info[0]);
+    console.log(info[1]);
   }
 }
 

@@ -9,7 +9,6 @@
   </head>
   <body>
     <div class="container">
-      
       <div>
         <div class="buttons">
           <div>
@@ -24,6 +23,20 @@
             <button>Deaths</button>
             <button>Recovered</button>
             <button>Critical</button>
+          </div>
+          <div class="controls">
+            <h5 class="label">Chart Type</h5>
+            <select
+              name="chartType"
+              id="chartType"
+              onchange="updateChartType()"
+            >
+              <option value="line">Line</option>
+              <option value="bar">Bar</option>
+              <option value="radar">Radar</option>
+              <option value="polarArea">Polar Area</option>
+              <option value="doughnut">Doughnut</option>
+            </select>
           </div>
           <div>
             <div class="countries">
