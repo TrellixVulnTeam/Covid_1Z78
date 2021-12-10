@@ -66,7 +66,7 @@ function getInfoByregion(region) {
 
 var chart = document.getElementById("myChart");
 var myChart = new Chart(chart, {
-  type: "bar",
+  type: "line",
   data: {
     labels: [],
     datasets: [
@@ -115,8 +115,9 @@ function updateDataByRegion(region) {
   removeData(myChart);
 
   for (let info of Object.values(currentRegionInfo)) {
-    info[1][currentDataType] &&
+    // info[1][currentDataType] &&
       addData(myChart, info[0], info[1][currentDataType]);
+      // console.log(info[1][currentDataType])
   }
 }
 
