@@ -66,7 +66,7 @@ function getInfoByregion(region) {
 
 var chart = document.getElementById("myChart");
 var myChart = new Chart(chart, {
-  type: "bar",
+  type: "line",
   data: {
     labels: [],
     datasets: [
