@@ -54,7 +54,7 @@ function getInfoByregion(region) {
     currentRegionInformation.push([el, covidInformation[el]]);
   });
 
-  // console.log(currentRegionInformation);
+  console.log(currentRegionInformation);
 
   currentRegionInformation = Object.values(currentRegionInformation).filter(
     (el) => {
@@ -175,14 +175,14 @@ function updateDataByRegion(region) {
 
   for (let info of Object.values(currentRegionInformation)) {
     addData(myChart, info[0], info[1][currentDataType]);
-    // console.log(info[0]);
-    // console.log(info[1][currentDataType]);
+    console.log(info[0]);
+    console.log(info[1][currentDataType]);
   }
 }
 
 function updateDataType(dataType) {
   removeData(myChart);
-  currentDataType = dataType;
+  // currentDataType = dataType;
   for (let info of Object.values(currentRegionInformation)) {
     addData(myChart, info[0], info[1][dataType]);
   }

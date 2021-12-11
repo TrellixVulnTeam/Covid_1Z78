@@ -47,6 +47,24 @@ button:hover {
   overflow-x: hidden;
   margin: 0 auto;
   z-index: 1; }
+  .countries .countries-of-region {
+    display: flex;
+    border: 1px solid #1f1f1f;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    align-items: center;
+    overflow: scroll;
+    overflow-y: hidden; }
+  .countries .countries-of-region::-webkit-scrollbar {
+    width: 10px; }
+  .countries .countries-of-region::-webkit-scrollbar-track {
+    background: white; }
+  .countries .countries-of-region::-webkit-scrollbar-thumb {
+    background: rgba(255, 187, 187, 0.842);
+    border-radius: 10px; }
+  .countries .countries-of-region::-webkit-scrollbar-thumb:hover {
+    background: #ffbbbb; }
 
 .countries p {
   cursor: pointer;
@@ -63,17 +81,17 @@ button:hover {
   display: flex;
   height: 50%;
   position: absolute;
-  right: 500px;
-  top: 250px;
+  right: 600px;
+  top: 260px;
   z-index: 0;
   padding: 50px;
-  width: 100%;
   justify-content: flex-end;
   align-items: center;
   visibility: hidden; }
 
 .country-info > div {
   border: 1px solid black;
+  background-color: aqua;
   height: 100px;
   width: 150px;
   padding: 5px;
@@ -85,18 +103,24 @@ button:hover {
 
 .country-info h1 {
   position: absolute;
-  top: 10vh; }
+  top: 8vh;
+  right: 80px; }
 
 /* for mobile - max 830px */
 @media (max-width: 830px) {
   .countries {
-    height: 200px;
+    height: 100px;
     width: 100%; }
+    .countries .countries-of-region {
+      height: 100%; }
   .country-info {
     right: 0;
-    top: 180px;
+    top: 400px;
     display: flex; }
   .country-info h1 {
-    left: 40px; }
+    left: 70px;
+    font-size: 26px; }
   .country-info > div {
-    margin: 5px auto; } }
+    margin: 5px auto; }
+  .chart-container {
+    height: 100%; } }
