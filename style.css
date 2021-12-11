@@ -84,7 +84,6 @@ button:hover {
   justify-content: flex-end;
   align-items: center;
   visibility: hidden;
-  /* background: url("../img/bg.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
