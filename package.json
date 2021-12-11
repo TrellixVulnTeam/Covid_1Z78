@@ -1,0 +1,25 @@
+{
+  "name": "covid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricChukoltyansky/Covid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricChukoltyansky/Covid/issues"
+  },
+  "homepage": "https://github.com/EricChukoltyansky/Covid#readme",
+  "dependencies": {
+    "node": "^17.2.0",
+    "node-sass": "^7.0.0",
+    "sass": "^1.45.0"
+  }
+}
